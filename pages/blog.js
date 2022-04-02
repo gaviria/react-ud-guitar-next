@@ -22,7 +22,7 @@ export default function Blog({entradas}) {
 
 export async function getStaticProps() {
 
-    const url = 'http://localhost:1337/api/blogs?populate=*';
+    const url = `${process.env.API_URL}/blogs?populate=*`;
     const respuesta = await fetch(url);
     const entradas = await respuesta.json();
 
