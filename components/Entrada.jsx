@@ -1,26 +1,26 @@
-import React from 'react'
 import { formatearFecha } from '../helpers/formatearFecha'
+import styles from '../styles/Entrada.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
 const Entrada = ({entrada}) => {
-    const {titulo, resumen, imagen, publishedAt} = entrada.attributes;
+    const { id, attributes: { titulo, resumen, imagen, publishedAt }} = entrada;
     
     return (
         <article>
-            <Image
+            <Image priority="true"
                 layout='responsive'
                 width={800}
                 height={600}
                 src={imagen.data.attributes.url}
                 alt={`imagen blog ${titulo}`}
             />
-            <div>
-                <h1>{titulo}</h1>
-                <p>{formatearFecha(publishedAt)}</p>
-                <p>{resumen}</p>
-                <Link href={`/blog/{id}`}>
-                    Leer Entrada
+            <div className={styles.contenido}>
+                <h3>{titulo}</h3>
+                <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>
+                <p className={styles.resumen}>{resumen}</p>
+                <Link href={`/blog/${id}`}>
+                    <a className={styles.enlace}>Leer Entrada</a>
                 </Link>
             </div>
         </article>
