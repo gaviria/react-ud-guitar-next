@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const Entrada = ({entrada}) => {
-    const { id, attributes: { titulo, resumen, imagen, publishedAt }} = entrada;
+    const { id, attributes: { titulo, resumen, imagen, publishedAt, url }} = entrada;
     
     return (
         <article>
@@ -19,7 +19,7 @@ const Entrada = ({entrada}) => {
                 <h3>{titulo}</h3>
                 <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>
                 <p className={styles.resumen}>{resumen}</p>
-                <Link href={`/blog/${id}`}>
+                <Link href={`/blog/${url}`}>
                     <a className={styles.enlace}>Leer Entrada</a>
                 </Link>
             </div>
