@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Guitarra.module.css'
 
 function Guitarra({guitarra}) {
-    console.log(guitarra)
     const {attributes: {nombre, descripcion, precio, url, imagen}} = guitarra;
     return (
         <div className={styles.guitarra}>
